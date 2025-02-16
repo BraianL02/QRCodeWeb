@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Código QR Generado</title>
+    <link rel="stylesheet" href="../static/css/layout.css">
+</head>
+<body>
+    <a href="/"><img src="{{ url_for('static', filename='img/titulo.png') }}" class="logo"></a>
+    <p class="title" style="margin-top: 50px">Código QR Generado</p>
+    {% if qr_path %}
+        <img src="{{ qr_path }}" class="imgQR" alt="Código QR">
+        <div class="buttons" style="margin-top: 40px;">
+            <a href="{{ qr_path }}" download>
+                <button type="button"style="margin-left: 60px!important" >Descargar</button>
+            </a>
+            <a href="/">
+                <button type="button" href="/">Volver al inicio</button>
+            </a>
+        </div>
+    {% else %}
+        <p>Error al generar el código QR.</p>
+    {% endif %}
+
+    <br>
+</body>
+</html>

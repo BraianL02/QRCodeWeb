@@ -1,0 +1,207 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #140038 !important;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.logo {
+    padding-top: 10px ;
+    padding-left: 20px;
+    cursor: default;
+    width: 330px;
+    height: auto;
+    transition: 0.5s;
+}
+.logo:hover{
+    transform: scale(1.14);
+}
+
+.title {
+    font-size: 35px;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    margin-top: 150px;
+    margin-bottom: 80px; /* Reducir el espacio debajo del título */
+}
+
+
+h1{
+    font-weight: normal;
+}
+h1 strong {
+    color: #8e2db4;
+}
+
+p {
+    color: rgb(226, 194, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: default;
+}
+.buttons {
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    display: flex;
+    gap: 100px;
+}
+.buttons button {
+    /* border-radius: 10px; */
+    --glow-color: rgb(213, 168, 255);
+    --glow-spread-color: rgba(113, 64, 158, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(255, 255, 255);
+    border: .20em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 0.5em .1em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+}
+button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(1.5em);
+    opacity: .5;
+    transform: perspective(2.5em) rotateX(35deg) scale(2, .6);
+   }
+
+.buttons button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 0.5em .15em var(--glow-color),
+           0 0 2em 1em var(--glow-spread-color),
+           inset 0 0 .25em .05em var(--glow-color);
+    transform: scale(1.12);
+   }
+button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+.buttons #confirm_button_wifi, #back_button{
+    margin: 0 auto;
+    max-width: 150px;
+    text-align:center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.final-text{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20%;
+}
+#hidden-wifi{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+    position: absolute;
+    width: 400px;
+    margin: 0 auto;
+}
+#hidden-wifi.show {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+}
+#hidden-url{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+    position: absolute;
+    width: 400px;
+    margin: 0 auto;
+}
+#hidden-url.show {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+}
+
+/* Estilo formulario wifi y url */
+
+.form input,
+.form select {
+    background-color: #1e0036; /* Fondo oscuro */
+    color: #ffffff; /* Color del texto */
+    border: 2px solid var(--glow-color);
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    
+    /* Efecto de brillo inicial */
+    box-shadow: 0 0 0.5em 0.1em var(--glow-color),
+                inset 0 0 0.5em 0.1em var(--glow-color);
+    transition: all 0.6s ease-in-out;
+}
+:root {
+    --glow-color: rgb(213, 168, 255);
+    --glow-spread-color: rgba(113, 64, 158, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+}
+.form input:focus, 
+.form select:focus {
+    box-shadow: 0 0 0.5em 0.1em var(--glow-color),
+                0 0 1em 0.25em var(--glow-spread-color),
+                inset 0 0 0.5em 0.1em var(--glow-color);
+    border-color: var(--enhanced-glow-color);
+}
+.form input:hover, 
+.form select:hover {
+    box-shadow: 0 0 0.4em 0.2em var(--glow-color),
+                0 0 1.25em 0.5em var(--glow-spread-color),
+                inset 0 0 0.25em 0.1em var(--glow-color);
+}
+.form input::placeholder{
+    color: rgb(184, 149, 212);
+}
+
+/*  */
+
+#imagen {
+    display: none;
+}
+.imgQR{
+    width: 400px; 
+    height: auto;
+    margin: 0 auto;
+    transition: 0.5s;
+}
+.imgQR:hover{
+    transform: scale(1.12);
+}
+.buttons #confirm_button_url, #back_bttn{
+    margin: 0 auto;
+    max-width: 150px;
+    text-align:center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
