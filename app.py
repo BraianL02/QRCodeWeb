@@ -48,7 +48,10 @@ def show_qr():
     qr_path = request.args.get("qr_path")  # Obtiene la imagen desde la URL
     return render_template("generated.html", qr_path=qr_path)
 
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    port = int(os.environ.get("PORT", 10000))  # Render asigna un puerto automáticamente
+    app.run(host="0.0.0.0", port=port, debug=False)
