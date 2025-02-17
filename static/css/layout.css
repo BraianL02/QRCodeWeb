@@ -7,25 +7,34 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    align-items: center;
 }
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+}
+
 .logo {
     padding-top: 10px ;
-    padding-left: 20px;
     cursor: default;
-    width: 330px;
+    max-width: 90%;
     height: auto;
     transition: 0.5s;
+    align-self: flex-start !important;
 }
 .logo:hover{
     transform: scale(1.14);
 }
 
 .title {
-    font-size: 35px;
-    justify-content: center; /* Centrar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
-    margin-top: 150px;
-    margin-bottom: 80px; /* Reducir el espacio debajo del título */
+    font-size: 28px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 
@@ -42,23 +51,23 @@ p {
     align-items: center;
     display: flex;
     cursor: default;
+    margin-top: 10% !important;
 }
 .buttons {
-    justify-content: center; /* Centrar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
     display: flex;
-    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 .buttons button {
-    /* border-radius: 10px; */
     --glow-color: rgb(213, 168, 255);
     --glow-spread-color: rgba(113, 64, 158, 0.781);
     --enhanced-glow-color: rgb(231, 206, 255);
     --btn-color: rgb(255, 255, 255);
     border: .20em solid var(--glow-color);
-    padding: 1em 3em;
+    padding: 1em 2em;
     color: var(--glow-color);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     background-color: var(--btn-color);
     border-radius: 1em;
@@ -69,6 +78,8 @@ p {
     text-shadow: 0 0 .5em var(--glow-color);
     position: relative;
     transition: all 0.3s;
+    width: 10em;
+    height: 4em;
 }
 button::after {
     pointer-events: none;
@@ -109,10 +120,10 @@ button:active {
     align-items: center;
 }
 .final-text{
-    width: 400px;
-    margin: 0 auto;
+    width: 90%;
+    max-width: 600px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 #hidden-wifi{
     visibility: hidden;
@@ -142,12 +153,20 @@ button:active {
 }
 
 /* Estilo formulario wifi y url */
-
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
 .form input,
 .form select {
     background-color: #1e0036; /* Fondo oscuro */
     color: #ffffff; /* Color del texto */
     border: 2px solid var(--glow-color);
+    width: 100%;
     padding: 10px;
     border-radius: 10px;
     outline: none;
@@ -204,4 +223,23 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .title {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .title {
+        font-size: 24px;
+        margin-top: 30px;
+    }
 }

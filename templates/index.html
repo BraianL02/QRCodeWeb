@@ -12,91 +12,97 @@
 </head>
 
 <body class="text-white">
-    <a href="/" style="width:330px;"><img src="{{ url_for('static', filename='img/titulo.png') }}" class="logo"></a>
-    <p class="title">Select the type of QR code</p>
-    <div class="buttons">
-        <button id="show_wifi" name="qr_type" value="wifi">wifi</button>
-        <button id="show_url" name="qr_type" value="url">URL</button>
-    </div>
-    <form id="hidden-wifi" class="form" method="post">
-        <input id="input_wifi_name" type="text" class="form-control" name="ssid" placeholder="WiFi network name">
-        <input id="input_wifi_pass" type="text" class="form-control" name="password" placeholder="Password">
-        <select id="select_security" class="form-select security" name="security">
-            <option value="default" selected disabled>Security</option>
-            <option value="WPA">WPA</option>
-            <option value="WEP">WEP</option>
-            <option value="nopass">nopass</option>
-        </select>
-        <select id="select_visibility" class="form-select visibility" name="hidden">
-            <option value="default" selected disabled>Visibility</option>
-            <option value="true">Hidden</option>
-            <option value="false">Visible</option>
-        </select>
-        <select id="select_color1" class="form-select" name="color1">
-            <option value="default" selected disabled>Colors 1</option>
-            {% for color1 in colors %}
-            <option value="{{ color1 }}">{{ color1 }}</option>
-            {% endfor %}
-        </select>
-        <select id="select_color2" class="form-select" name="color2">
-            <option value="default" selected disabled>Colors 2</option>
-            {% for color2 in colors %}
-            <option value="{{ color2 }}">{{ color2 }}</option>
-            {% endfor %}
-        </select>
-        <select id="select_logo" class="form-select" name="logo">
-            <option value="default" selected disabled>Logo</option>
-            {% for logo in logos %}
-            <option value="{{ logo }}">{{ logo }}</option>
-            {% endfor %}
-        </select>
-        <div class="buttons" style="padding-top: 12%;">
-            <button id="back_button" type="button">Back</button>
-            <button id="confirm_button_wifi" type="submit" disabled>Confirm</button>
+    <div class="container">
+        <div class="header">
+            <a href="/" style="width:330px;"><img src="{{ url_for('static', filename='img/titulo.png') }}" class="logo"></a>
         </div>
-    </form>
-    <form id="hidden-url" method="post" class="form">
-        <input type="text" class="form-control url" name="url" placeholder="URL">
-        <select class="form-select" name="color1">
-            <option value="default" selected disabled>Colors 1</option>
-            {% for color1 in colors %}
-            <option value="{{ color1 }}">{{ color1 }}</option>
-            {% endfor %}
-        </select>
-        <select class="form-select" name="color2">
-            <option value="default" selected disabled>Colors 2</option>
-            {% for color2 in colors %}
-            <option value="{{ color2 }}">{{ color2 }}</option>
-            {% endfor %}
-        </select>
-        <select class="form-select" name="logo">
-            <option value="default" selected disabled>Logo</option>
-            {% for logo in logos %}
-            <option value="{{ logo }}">{{ logo }}</option>
-            {% endfor %}
-        </select>
-        <div class="buttons" style="padding-top: 12%;">
-            <button id="back_bttn" type="button">Back</button>
-            <button id="confirm_button_url" type="submit" disabled>Confirm</button>
+        <p class="title">Select the type of QR code</p>
+        <div class="buttons">
+            <button id="show_wifi" name="qr_type" value="wifi">wifi</button>
+            <button id="show_url" name="qr_type" value="url">URL</button>
         </div>
+        <form id="hidden-wifi" class="form" method="post">
+            <input id="input_wifi_name" type="text" class="form-control" name="ssid" placeholder="WiFi network name">
+            <input id="input_wifi_pass" type="text" class="form-control" name="password" placeholder="Password">
+            <select id="select_security" class="form-select security" name="security">
+                <option value="default" selected disabled>Security</option>
+                <option value="WPA">WPA</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">nopass</option>
+            </select>
+            <select id="select_visibility" class="form-select visibility" name="hidden">
+                <option value="default" selected disabled>Visibility</option>
+                <option value="true">Hidden</option>
+                <option value="false">Visible</option>
+            </select>
+            <select id="select_color1" class="form-select" name="color1">
+                <option value="default" selected disabled>Colors 1</option>
+                {% for color1 in colors %}
+                <option value="{{ color1 }}">{{ color1 }}</option>
+                {% endfor %}
+            </select>
+            <select id="select_color2" class="form-select" name="color2">
+                <option value="default" selected disabled>Colors 2</option>
+                {% for color2 in colors %}
+                <option value="{{ color2 }}">{{ color2 }}</option>
+                {% endfor %}
+            </select>
+            <select id="select_logo" class="form-select" name="logo">
+                <option value="default" selected disabled>Logo</option>
+                {% for logo in logos %}
+                <option value="{{ logo }}">{{ logo }}</option>
+                {% endfor %}
+            </select>
+            <div class="buttons" style="padding-top: 12%;">
+                <button id="back_button" type="button">Back</button>
+                <button id="confirm_button_wifi" type="submit" disabled>Confirm</button>
+            </div>
+        </form>
+        <form id="hidden-url" method="post" class="form">
+            <input type="text" class="form-control url" name="url" placeholder="URL">
+            <select class="form-select" name="color1">
+                <option value="default" selected disabled>Colors 1</option>
+                {% for color1 in colors %}
+                <option value="{{ color1 }}">{{ color1 }}</option>
+                {% endfor %}
+            </select>
+            <select class="form-select" name="color2">
+                <option value="default" selected disabled>Colors 2</option>
+                {% for color2 in colors %}
+                <option value="{{ color2 }}">{{ color2 }}</option>
+                {% endfor %}
+            </select>
+            <select class="form-select" name="logo">
+                <option value="default" selected disabled>Logo</option>
+                {% for logo in logos %}
+                <option value="{{ logo }}">{{ logo }}</option>
+                {% endfor %}
+            </select>
+            <div class="buttons" style="padding-top: 12%;">
+                <button id="back_bttn" type="button">Back</button>
+                <button id="confirm_button_url" type="submit" disabled>Confirm</button>
+            </div>
 
-    </form>
-    <div id="imagen">
-        {% if qr_path %}
-        <h2>QR Generado</h2>
-        <img src="{{ qr_path }}" alt="Código QR">
-        <br>
-        <a href="{{ qr_path }}" download>Descargar QR</a>
-        {% endif %}
+        </form>
+        <div id="imagen">
+            {% if qr_path %}
+            <h2>QR Generado</h2>
+            <img src="{{ qr_path }}" alt="Código QR">
+            <br>
+            <a href="{{ qr_path }}" download>Descargar QR</a>
+            {% endif %}
+        </div>
+        <p class="final-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non inventore
+            libero,necessitatibus
+            corporis maxime eligendi in nam nisi esse dignissimos voluptas suscipit placeat accusantium.Aperiam
+            laudantium
+            illo culpa est quis.</p>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="../static/js/layout.js"></script>
     </div>
-    <p class="final-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non inventore libero,necessitatibus
-        corporis maxime eligendi in nam nisi esse dignissimos voluptas suscipit placeat accusantium.Aperiam laudantium
-        illo culpa est quis.</p>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="../static/js/layout.js"></script>
 </body>
 
 </html>
