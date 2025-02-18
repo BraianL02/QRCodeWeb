@@ -1,40 +1,45 @@
-
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: #140038 !important;
-    font-family: Arial, Helvetica, sans-serif;
+*{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    align-items: center;
 }
-.container {
+body {
+    /* display: flex;
+    flex-direction: column; */
+    background-color: #140038 !important;
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin: 0;
+    padding: 0; */
+    min-height: 100vh;
+}
+.main-container{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-rows: 10% 20% 30%;
+    margin: 20px auto;
+    max-width: 1500px;
+    padding: 40px auto;
     width: 90%;
-    max-width: 1200px;
-    text-align: center;
 }
 
 .logo {
     padding-top: 10px ;
+    padding-left: 20px;
     cursor: default;
-    max-width: 90%;
+    width: 330px;
     height: auto;
     transition: 0.5s;
-    align-self: flex-start !important;
 }
 .logo:hover{
     transform: scale(1.14);
 }
 
 .title {
-    font-size: 28px;
-    margin-top: 50px;
-    margin-bottom: 40px;
-    text-align: center;
+    font-size: 35px;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    margin-top: 150px;
+    margin-bottom: 80px; /* Reducir el espacio debajo del título */
 }
 
 
@@ -51,23 +56,25 @@ p {
     align-items: center;
     display: flex;
     cursor: default;
-    margin-top: 10% !important;
 }
 .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px auto;
+    gap: 100px;
 }
 .buttons button {
+    /* border-radius: 10px; */
     --glow-color: rgb(213, 168, 255);
     --glow-spread-color: rgba(113, 64, 158, 0.781);
     --enhanced-glow-color: rgb(231, 206, 255);
     --btn-color: rgb(255, 255, 255);
     border: .20em solid var(--glow-color);
-    padding: 1em 2em;
+    padding: 1em 3em;
     color: var(--glow-color);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     background-color: var(--btn-color);
     border-radius: 1em;
@@ -78,8 +85,6 @@ p {
     text-shadow: 0 0 .5em var(--glow-color);
     position: relative;
     transition: all 0.3s;
-    width: 10em;
-    height: 4em;
 }
 button::after {
     pointer-events: none;
@@ -120,17 +125,17 @@ button:active {
     align-items: center;
 }
 .final-text{
-    width: 90%;
-    max-width: 600px;
+    width: 400px;
+    margin: 0 auto;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 #hidden-wifi{
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
     position: absolute;
-    width: 400px;
+    width: 40%;
     margin: 0 auto;
 }
 #hidden-wifi.show {
@@ -153,20 +158,12 @@ button:active {
 }
 
 /* Estilo formulario wifi y url */
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-}
+
 .form input,
 .form select {
     background-color: #1e0036; /* Fondo oscuro */
     color: #ffffff; /* Color del texto */
     border: 2px solid var(--glow-color);
-    width: 100%;
     padding: 10px;
     border-radius: 10px;
     outline: none;
@@ -224,22 +221,30 @@ button:active {
     justify-content: center;
     align-items: center;
 }
-@media (min-width: 768px) {
-    .container {
-        grid-template-columns: 1fr 1fr;
+
+/* Media Queries */
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+    .buttons{
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
-    .title {
-        font-size: 35px;
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .buttons{
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .title {
-        font-size: 24px;
-        margin-top: 30px;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    .buttons{
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

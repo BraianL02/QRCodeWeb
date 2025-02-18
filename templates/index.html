@@ -12,10 +12,8 @@
 </head>
 
 <body class="text-white">
-    <div class="container">
-        <div class="header">
-            <a href="/" style="width:330px;"><img src="{{ url_for('static', filename='img/titulo.png') }}" class="logo"></a>
-        </div>
+    <div class="main-container">
+        <a href="/" style="width:330px;"><img src="{{ url_for('static', filename='img/titulo.png') }}" class="logo"></a>
         <p class="title">Select the type of QR code</p>
         <div class="buttons">
             <button id="show_wifi" name="qr_type" value="wifi">wifi</button>
@@ -92,11 +90,10 @@
             <a href="{{ qr_path }}" download>Descargar QR</a>
             {% endif %}
         </div>
-        <p class="final-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non inventore
-            libero,necessitatibus
-            corporis maxime eligendi in nam nisi esse dignissimos voluptas suscipit placeat accusantium.Aperiam
-            laudantium
-            illo culpa est quis.</p>
+        <p class="final-text">Generador de códigos QR, Seleccione una de las opciones: generar un código QR para conectarte fácilmente 
+            a una red WIFI sin necesidad de ingresar manualmente la contraseña o crear un QR que lo redirija a una página web, haciendo que su acceso sea más rápido.<br>
+            Además, puede personalizar su código a gusto, ya sea cambiando los colores o agregando un logo en el centro.
+        </p>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
